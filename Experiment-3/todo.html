@@ -5,51 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>To-Do List App</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f1f5f9; display: flex; justify-content: center; padding: 40px 15px; margin: 0; }
-    .todo-container { background: #ffffff; width: 100%; max-width: 400px; padding: 24px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; }
-    h2 { font-size: 1.3rem; margin-top: 0; color: #0f172a; }
+    body { font-family: sans-serif; background: #f1f5f9; display: flex; justify-content: center; padding: 40px 15px; margin: 0; }
+    .todo-container { background: #fff; width: 100%; max-width: 400px; padding: 20px; border-radius: 8px; border: 1px solid #cbd5e1; }
+    h2 { font-size: 1.25rem; margin-top: 0; color: #1e293b; }
     .input-group { display: flex; gap: 8px; margin-bottom: 16px; }
-    input[type="text"] { flex: 1; padding: 9px 12px; border: 1px solid #cbd5e1; border-radius: 5px; font-size: 0.95rem; }
-    button.add-btn { background: #2563eb; color: white; border: none; padding: 9px 16px; border-radius: 5px; cursor: pointer; font-weight: 500; }
+    input[type="text"] { flex: 1; padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 4px; }
+    button.add-btn { background: #2563eb; color: white; border: none; padding: 8px 14px; border-radius: 4px; cursor: pointer; }
     ul { list-style: none; padding: 0; margin: 0; }
-    li { display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; border-bottom: 1px solid #f1f5f9; cursor: pointer; }
+    li { display: flex; justify-content: space-between; align-items: center; padding: 8px 10px; border-bottom: 1px solid #f1f5f9; cursor: pointer; }
     li.completed span { text-decoration: line-through; color: #94a3b8; }
     .del-btn { background: #ef4444; color: white; border: none; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; }
   </style>
 </head>
 <body>
   <div class="todo-container">
-    <h2>Tasks for Today</h2>
+    <h2>My To-Do List</h2>
     <div class="input-group">
       <input type="text" id="taskInput" placeholder="Add a new task...">
       <button class="add-btn" id="addBtn">Add</button>
     </div>
     <ul id="taskList"></ul>
   </div>
+
   <script>
     const taskInput = document.getElementById("taskInput");
     const addBtn = document.getElementById("addBtn");
     const taskList = document.getElementById("taskList");
 
-    function handleAddTask() {
+    function addTask() {
       const text = taskInput.value.trim();
-      if (!text) return;
+      if (text === "") return;
+
       const li = document.createElement("li");
       const span = document.createElement("span");
       span.textContent = text;
-      li.addEventListener("click", () => li.classList.toggle("completed"));
+
+      // toggle task completion
+      li.addEventListener("click", function() {
+        li.classList.toggle("completed");
+      });
+
+      // delete task
       const delBtn = document.createElement("button");
       delBtn.textContent = "Delete";
       delBtn.className = "del-btn";
-      delBtn.addEventListener("click", (e) => { e.stopPropagation(); li.remove(); });
+      delBtn.addEventListener("click", function(e) {
+        e.stopPropagation();
+        li.remove();
+      });
+
       li.appendChild(span);
       li.appendChild(delBtn);
       taskList.appendChild(li);
+
       taskInput.value = "";
       taskInput.focus();
     }
-    addBtn.addEventListener("click", handleAddTask);
-    taskInput.addEventListener("keydown", (e) => { if (e.key === "Enter") handleAddTask(); });
+
+    addBtn.addEventListener("click", addTask);
+    taskInput.addEventListener("keydown", function(e) {
+      if (e.key === "Enter") addTask();
+    });
   </script>
 </body>
 </html>
