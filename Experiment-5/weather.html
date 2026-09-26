@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App - Experiment 5</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #e2e8f0; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+    .card { background: white; padding: 28px; border-radius: 10px; width: 100%; max-width: 360px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align: center; }
+    h2 { margin-top: 0; color: #0f172a; font-size: 1.3rem; }
+    .search-box { display: flex; gap: 8px; margin-bottom: 18px; }
+    input { flex: 1; padding: 9px 12px; border: 1px solid #cbd5e1; border-radius: 5px; font-size: 0.95rem; }
+    button { background: #0284c7; color: white; border: none; padding: 9px 15px; border-radius: 5px; cursor: pointer; font-weight: 500; }
+    button:hover { background: #0369a1; }
+    .weather-info { margin-top: 20px; display: none; }
+    .city-name { font-size: 1.15rem; font-weight: 600; color: #0f172a; margin-bottom: 4px; }
+    .temp { font-size: 2.4rem; font-weight: 700; color: #0284c7; margin: 10px 0; }
+    .details { font-size: 0.9rem; color: #64748b; }
+    .msg { font-size: 0.9rem; color: #64748b; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Live Weather Finder</h2>
+    <div class="search-box">
+      <input type="text" id="cityInput" placeholder="Enter city (e.g. Noida, Delhi)">
+      <button id="searchBtn">Search</button>
+    </div>
+    <div id="statusMsg" class="msg">Enter a city name above to view current weather.</div>
+    <div id="weatherDisplay" class="weather-info">
+      <div id="locName" class="city-name"></div>
+      <div id="tempVal" class="temp"></div>
+      <div id="windVal" class="details"></div>
+    </div>
+  </div>
+  <script>
+    const searchBtn = document.getElementById("searchBtn");
+    const cityInput = document.getElementById("cityInput");
+    const statusMsg = document.getElementById("statusMsg");
+    const weatherDisplay = document.getElementById("weatherDisplay");
+    const locName = document.getElementById("locName");
+    const tempVal = document.getElementById("tempVal");
+    const windVal = document.getElementById("windVal");
+
+    async function fetchWeather() {
+      const city = cityInput.value.trim();
+      if (!city) {
+        statusMsg.textContent = "Please enter a city name.";
+        return;
+      }
+      statusMsg.textContent = "Fetching current weather...";
+      weatherDisplay.style.display = "none";
+      try {
+        const geoUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1&language=en&format=json`;
+        const geoRes = await fetch(geoUrl);
+        const geoData = await geoRes.json();
+        if (!geoData.results || geoData.results.length === 0) {
+          statusMsg.textContent = "City not found. Please verify spelling.";
+          return;
+        }
+        const { latitude, longitude, name, country } = geoData.results[0];
+        const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`;
+        const weatherRes = await fetch(weatherUrl);
+        const weatherData = await weatherRes.json();
+        statusMsg.textContent = "";
+        locName.textContent = `${name}, ${country}`;
+        tempVal.textContent = `${weatherData.current_weather.temperature} °C`;
+        windVal.textContent = `Wind Speed: ${weatherData.current_weather.windspeed} km/h`;
+        weatherDisplay.style.display = "block";
+      } catch (err) {
+        statusMsg.textContent = "Failed to fetch weather. Please check your network.";
+      }
+    }
+    searchBtn.addEventListener("click", fetchWeather);
+    cityInput.addEventListener("keydown", (e) => { if (e.key === "Enter") fetchWeather(); });
+  </script>
+</body>
+</html>

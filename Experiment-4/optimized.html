@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Technical guide explaining web accessibility standards and semantic HTML structure for web development students.">
+  <meta name="keywords" content="HTML5, Semantic HTML, Web Accessibility, SEO, WCAG">
+  <meta name="author" content="Vansh Chaudhary">
+  <meta property="og:title" content="Web Accessibility and Semantic HTML Guide">
+  <meta property="og:description" content="Core principles of building accessible, SEO-friendly web interfaces.">
+  <meta property="og:type" content="article">
+  <title>Web Accessibility & Semantic Standards | Lab Exp 4</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #1e293b; max-width: 760px; margin: auto; padding: 30px 20px; }
+    a:focus, button:focus, input:focus { outline: 2px solid #2563eb; outline-offset: 2px; }
+    nav ul { display: flex; list-style: none; padding: 0; gap: 15px; margin-bottom: 25px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; }
+    nav a { text-decoration: none; color: #2563eb; font-weight: 500; }
+    img { max-width: 100%; height: auto; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav aria-label="Main Navigation">
+      <ul>
+        <li><a href="#intro">Introduction</a></li>
+        <li><a href="#semantics">Semantic Tags</a></li>
+        <li><a href="#accessibility">Accessibility Checklist</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="main-content">
+    <article>
+      <h1>Building Accessible and Search-Optimized Webpages</h1>
+      <p>Published for Web Development Lab Experiment 4 by <strong>Vansh Chaudhary</strong>.</p>
+      <section id="intro">
+        <h2>1. Why Accessibility Matters</h2>
+        <p>Web accessibility ensures that people with disabilities can understand and navigate web applications using screen readers and assistive devices.</p>
+      </section>
+      <section id="semantics">
+        <h2>2. Semantic HTML Elements</h2>
+        <p>Using semantic elements like <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, and <code>&lt;article&gt;</code> gives clear meaning to search engines and screen readers.</p>
+        <figure style="margin: 20px 0;">
+          <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=700&auto=format&fit=crop&q=80" alt="Laptop displaying clean web code on an editor screen">
+          <figcaption style="font-size: 0.85rem; color: #64748b; margin-top: 5px;">Figure 1: Writing clean, semantic frontend code.</figcaption>
+        </figure>
+      </section>
+      <section id="accessibility">
+        <h2>3. Accessible Forms</h2>
+        <p>Every form element must have an associated <code>&lt;label&gt;</code>:</p>
+        <form style="margin-top: 15px;">
+          <div style="margin-bottom: 10px;">
+            <label for="user-email">Subscribe to Lab Updates:</label><br>
+            <input type="email" id="user-email" name="email" placeholder="student@jssaten.ac.in" required>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </article>
+  </main>
+  <footer style="margin-top: 40px; border-top: 1px solid #e2e8f0; padding-top: 15px; font-size: 0.85rem; color: #64748b;">
+    <p>&copy; 2026 Vansh Chaudhary. Verified for WCAG 2.1 Level AA Standards.</p>
+  </footer>
+</body>
+</html>

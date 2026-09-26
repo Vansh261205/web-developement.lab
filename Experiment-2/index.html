@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vansh Chaudhary - Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="brand">Vansh Chaudhary</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="hero">
+    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80" alt="Vansh Chaudhary" class="profile-img">
+    <h1>Hi, I am Vansh Chaudhary</h1>
+    <p class="subtitle">2nd Year B.Tech CSE Student at JSS University</p>
+    <p class="bio">I build responsive web projects and focus on frontend engineering, algorithms, and practical web apps.</p>
+    <a href="#projects" class="btn">View Projects</a>
+  </section>
+  <section id="about" class="container">
+    <h2>About Me</h2>
+    <div class="card">
+      <p>I am a computer science student at JSS University with a strong interest in modern web development, software engineering, and problem solving.</p>
+    </div>
+  </section>
+  <section id="skills" class="container">
+    <h2>Technical Skills</h2>
+    <div class="skills-list">
+      <span class="skill-tag">HTML5 & Semantic Markup</span>
+      <span class="skill-tag">CSS3 (Flexbox & Grid)</span>
+      <span class="skill-tag">JavaScript (ES6+)</span>
+      <span class="skill-tag">Bootstrap 5</span>
+      <span class="skill-tag">Git & GitHub</span>
+      <span class="skill-tag">REST APIs</span>
+    </div>
+  </section>
+  <section id="projects" class="container">
+    <h2>Featured Lab Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Live Weather Finder</h3>
+        <p>Real-time weather app consuming public REST endpoints using the asynchronous Fetch API.</p>
+        <a href="../Experiment-5/weather.html" class="link-btn">Launch App &rarr;</a>
+      </div>
+      <div class="project-card">
+        <h3>Interactive To-Do List</h3>
+        <p>Dynamic task manager with task creation, deletion, and status toggle using vanilla JavaScript DOM.</p>
+        <a href="../Experiment-3/todo.html" class="link-btn">Launch App &rarr;</a>
+      </div>
+      <div class="project-card">
+        <h3>Responsive Tech Blog</h3>
+        <p>Multi-column technical blog utilizing Bootstrap 5 grid layout and custom media queries.</p>
+        <a href="../Experiment-6/blog.html" class="link-btn">Launch App &rarr;</a>
+      </div>
+    </div>
+  </section>
+  <section id="contact" class="container">
+    <h2>Get in Touch</h2>
+    <form class="contact-box" onsubmit="event.preventDefault(); alert('Message sent!');">
+      <div class="input-row"><label for="name">Your Name</label><input type="text" id="name" placeholder="Enter your name" required></div>
+      <div class="input-row"><label for="email">Email Address</label><input type="email" id="email" placeholder="name@example.com" required></div>
+      <div class="input-row"><label for="msg">Message</label><textarea id="msg" rows="4" placeholder="Your message..." required></textarea></div>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+  <footer><p>&copy; 2026 Vansh Chaudhary | JSS University Web Development Lab</p></footer>
+</body>
+</html>
