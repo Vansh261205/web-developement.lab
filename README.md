@@ -1,4 +1,4 @@
-# Web Development Lab (CSE 2nd Year)
+# Web Development Lab (CSE (Data Science) - 2nd Year)
 **Student:** Vansh Chaudhary  
 **Institution:** JSS University  
 **Subject:** Web Technology / Web Development Lab  
