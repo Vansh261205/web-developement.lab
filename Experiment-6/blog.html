@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Engineering Insights Blog | Exp 6</title>
+  <title>Vansh Chaudhary - Tech Blog</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    body { background-color: #f8fafc; }
-    .hero-banner { background: #0f172a; color: white; padding: 45px 0; }
-    .card-img-top { height: 180px; object-fit: cover; }
-    @media (max-width: 767.98px) {
-      .hero-banner { text-align: center; padding: 30px 15px; }
+    body { background-color: #f8f9fa; }
+    .banner { background: #212529; color: white; padding: 40px 0; }
+    .card-img-top { height: 170px; object-fit: cover; }
+    @media (max-width: 768px) {
+      .banner { text-align: center; padding: 25px 15px; }
       .sidebar { margin-top: 25px; }
     }
   </style>
@@ -18,75 +18,77 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="#">Vansh's Tech Blog</a>
+      <a class="navbar-brand" href="#">Vansh's Blog</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Tutorials</a></li>
           <li class="nav-item"><a class="nav-link" href="#">About</a></li>
         </ul>
       </div>
     </div>
   </nav>
-  <header class="hero-banner">
+
+  <header class="banner">
     <div class="container">
-      <h1 class="h2 fw-bold">Frontend Engineering & Web Standards</h1>
-      <p class="lead mb-0 fs-6 text-light">Articles on responsive architecture, CSS frameworks, and modern JavaScript.</p>
+      <h1 class="h3">Web Development Notes</h1>
+      <p class="mb-0 text-secondary">A simple blog documenting my web lab experiments and frontend learning.</p>
     </div>
   </header>
-  <div class="container my-5">
+
+  <div class="container my-4">
     <div class="row">
       <main class="col-lg-8">
-        <div class="row g-4">
+        <div class="row g-3">
           <div class="col-md-6">
-            <article class="card h-100 shadow-sm border-0">
-              <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=500&auto=format&fit=crop&q=80" class="card-img-top" alt="CSS code layout">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=500&auto=format&fit=crop&q=80" class="card-img-top" alt="Code editor">
               <div class="card-body">
-                <span class="badge bg-primary mb-2">CSS Layouts</span>
-                <h2 class="h5 card-title">Responsive Design with Grid & Flexbox</h2>
-                <p class="card-text text-secondary small">Understanding how Bootstrap breakpoints translate into fluid layouts across smartphones and monitors.</p>
-                <a href="#" class="btn btn-sm btn-outline-primary">Read Article &rarr;</a>
+                <span class="badge bg-primary mb-2">CSS</span>
+                <h2 class="h5 card-title">CSS Grid vs Flexbox</h2>
+                <p class="card-text small text-muted">When to use Flexbox for 1D navigation vs Grid for 2D card layouts in responsive web design.</p>
+                <a href="#" class="btn btn-sm btn-outline-primary">Read More</a>
               </div>
-            </article>
+            </div>
           </div>
+
           <div class="col-md-6">
-            <article class="card h-100 shadow-sm border-0">
-              <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500&auto=format&fit=crop&q=80" class="card-img-top" alt="JavaScript programming screen">
+            <div class="card h-100 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500&auto=format&fit=crop&q=80" class="card-img-top" alt="JavaScript screen">
               <div class="card-body">
                 <span class="badge bg-success mb-2">JavaScript</span>
-                <h2 class="h5 card-title">Working with the Fetch API</h2>
-                <p class="card-text text-secondary small">A breakdown of promises, async/await syntax, and error handling when consuming REST APIs in client-side JS.</p>
-                <a href="#" class="btn btn-sm btn-outline-primary">Read Article &rarr;</a>
+                <h2 class="h5 card-title">Using Fetch API</h2>
+                <p class="card-text small text-muted">How to make GET requests with async/await and update HTML elements using JSON responses.</p>
+                <a href="#" class="btn btn-sm btn-outline-primary">Read More</a>
               </div>
-            </article>
+            </div>
           </div>
         </div>
       </main>
+
       <aside class="col-lg-4 sidebar">
-        <div class="p-3 bg-white rounded shadow-sm border mb-4">
-          <h5>About the Author</h5>
-          <p class="text-secondary small mb-0">
-            Hi, I am Vansh Chaudhary, a 2nd-year CSE student at JSS University. This blog demonstrates responsive Bootstrap layout components and media queries for Lab Experiment 6.
-          </p>
+        <div class="p-3 bg-white rounded shadow-sm border mb-3">
+          <h5>About</h5>
+          <p class="small text-muted mb-0">Student blog by Vansh Chaudhary, 2nd Year CSE (Data Science) at JSS University.</p>
         </div>
         <div class="p-3 bg-white rounded shadow-sm border">
-          <h5>Topics</h5>
+          <h5>Categories</h5>
           <ul class="list-unstyled mb-0 small">
-            <li class="py-1"><a href="#" class="text-decoration-none">Bootstrap 5 Components</a></li>
-            <li class="py-1"><a href="#" class="text-decoration-none">Media Queries & Breakpoints</a></li>
-            <li class="py-1"><a href="#" class="text-decoration-none">Semantic Accessibility</a></li>
-            <li class="py-1"><a href="#" class="text-decoration-none">Git Workflow</a></li>
+            <li><a href="#" class="text-decoration-none">HTML & CSS</a></li>
+            <li><a href="#" class="text-decoration-none">JavaScript DOM</a></li>
+            <li><a href="#" class="text-decoration-none">Bootstrap 5</a></li>
           </ul>
         </div>
       </aside>
     </div>
   </div>
+
   <footer class="py-3 bg-dark text-white text-center">
     <div class="container"><small>&copy; 2026 Vansh Chaudhary | JSS University</small></div>
   </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

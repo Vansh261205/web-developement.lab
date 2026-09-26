@@ -3,79 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather App - Experiment 5</title>
+  <title>Weather App</title>
   <style>
-    body { font-family: sans-serif; background: #e2e8f0; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
-    .card { background: white; padding: 24px; border-radius: 8px; width: 100%; max-width: 340px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center; }
-    h2 { margin-top: 0; color: #1e293b; font-size: 1.25rem; }
-    .search-box { display: flex; gap: 8px; margin-bottom: 16px; }
-    input { flex: 1; padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 4px; }
-    button { background: #0284c7; color: white; border: none; padding: 8px 14px; border-radius: 4px; cursor: pointer; }
-    .weather-info { margin-top: 16px; display: none; }
-    .city-name { font-size: 1.1rem; font-weight: bold; color: #0f172a; }
-    .temp { font-size: 2.2rem; font-weight: bold; color: #0284c7; margin: 8px 0; }
-    .details { font-size: 0.9rem; color: #64748b; }
-    .msg { font-size: 0.85rem; color: #64748b; margin-top: 10px; }
+    body { font-family: Arial, sans-serif; background: #ebf8ff; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+    .box { background: white; padding: 24px; border-radius: 6px; width: 100%; max-width: 320px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center; }
+    h2 { margin-top: 0; font-size: 1.25rem; }
+    .search-row { display: flex; gap: 6px; margin-bottom: 15px; }
+    input { flex: 1; padding: 8px; border: 1px solid #bee3f8; border-radius: 4px; }
+    button { background: #3182ce; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; }
+    .res { margin-top: 15px; display: none; }
+    .temp { font-size: 2rem; font-weight: bold; color: #2b6cb0; margin: 6px 0; }
+    .info { font-size: 0.85rem; color: #718096; }
+    .msg { font-size: 0.85rem; color: #718096; margin-top: 10px; }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h2>Weather Finder</h2>
-    <div class="search-box">
-      <input type="text" id="cityInput" placeholder="Enter city (e.g. Noida, Delhi)">
+  <div class="box">
+    <h2>Weather App</h2>
+    <div class="search-row">
+      <input type="text" id="cityInput" placeholder="Enter city (e.g. Noida)">
       <button id="searchBtn">Search</button>
     </div>
-    <div id="statusMsg" class="msg">Enter a city to check weather.</div>
-    <div id="weatherDisplay" class="weather-info">
-      <div id="locName" class="city-name"></div>
-      <div id="tempVal" class="temp"></div>
-      <div id="windVal" class="details"></div>
+    <div id="msg" class="msg">Enter a city to check weather.</div>
+    <div id="res" class="res">
+      <div id="loc" style="font-weight: bold;"></div>
+      <div id="temp" class="temp"></div>
+      <div id="wind" class="info"></div>
     </div>
   </div>
 
   <script>
     const searchBtn = document.getElementById("searchBtn");
     const cityInput = document.getElementById("cityInput");
-    const statusMsg = document.getElementById("statusMsg");
-    const weatherDisplay = document.getElementById("weatherDisplay");
+    const msg = document.getElementById("msg");
+    const res = document.getElementById("res");
 
     async function getWeather() {
       const city = cityInput.value.trim();
       if (!city) {
-        statusMsg.textContent = "Please enter a city name.";
+        msg.textContent = "Please enter a city name.";
         return;
       }
 
-      statusMsg.textContent = "Loading weather...";
-      weatherDisplay.style.display = "none";
+      msg.textContent = "Loading...";
+      res.style.display = "none";
 
       try {
-        // Step 1: get coordinates
         const geoUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1&language=en&format=json`;
         const geoRes = await fetch(geoUrl);
         const geoData = await geoRes.json();
 
         if (!geoData.results || geoData.results.length === 0) {
-          statusMsg.textContent = "City not found.";
+          msg.textContent = "City not found.";
           return;
         }
 
         const { latitude, longitude, name, country } = geoData.results[0];
-
-        // Step 2: fetch weather
         const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`;
         const weatherRes = await fetch(weatherUrl);
-        const weatherData = await weatherRes.json();
+        const data = await weatherRes.json();
 
-        // Step 3: show output
-        statusMsg.textContent = "";
-        document.getElementById("locName").textContent = `${name}, ${country}`;
-        document.getElementById("tempVal").textContent = `${weatherData.current_weather.temperature} °C`;
-        document.getElementById("windVal").textContent = `Wind Speed: ${weatherData.current_weather.windspeed} km/h`;
-        weatherDisplay.style.display = "block";
+        msg.textContent = "";
+        document.getElementById("loc").textContent = `${name}, ${country}`;
+        document.getElementById("temp").textContent = `${data.current_weather.temperature} °C`;
+        document.getElementById("wind").textContent = `Wind: ${data.current_weather.windspeed} km/h`;
+        res.style.display = "block";
 
       } catch (err) {
-        statusMsg.textContent = "Error fetching data. Check your internet.";
+        msg.textContent = "Error fetching weather.";
       }
     }
 

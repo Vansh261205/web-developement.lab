@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vansh Chaudhary - Portfolio</title>
+  <title>Vansh Chaudhary | Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
     <nav class="navbar">
-      <div class="brand">Vansh Chaudhary</div>
+      <div class="logo">Vansh Chaudhary</div>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -20,73 +20,71 @@
   </header>
 
   <section class="hero">
-    <h1>Hi, I'm Vansh Chaudhary</h1>
-    <p class="subtitle">2nd Year B.Tech CSE (Data Science) | JSS University</p>
-    <p class="bio">Passionate about web development, data structures, and building functional frontend web apps.</p>
-    <a href="#projects" class="btn">View Projects</a>
+    <h1>Hi, I am Vansh Chaudhary</h1>
+    <p class="subtitle">B.Tech CSE (Data Science) - 2nd Year, JSS University</p>
+    <p>Interested in web development, Python, and working with data structures. Welcome to my lab portfolio.</p>
+    <a href="#projects" class="btn">My Projects</a>
   </section>
 
   <section id="about" class="container">
     <h2>About Me</h2>
-    <div class="card">
-      <p>I am a second-year Computer Science and Engineering student at JSS University. I am currently learning frontend development, JavaScript DOM manipulation, and working with REST APIs. I focus on writing clean, accessible HTML and responsive CSS.</p>
-    </div>
+    <p>I am a 2nd year student at JSS University studying Computer Science with a specialization in Data Science. I am currently learning front-end web development with HTML, CSS, JavaScript, and Bootstrap.</p>
   </section>
 
   <section id="skills" class="container">
-    <h2>Technical Skills</h2>
-    <div class="skills-list">
-      <span class="skill-tag">HTML5</span>
-      <span class="skill-tag">CSS3</span>
-      <span class="skill-tag">JavaScript</span>
-      <span class="skill-tag">Bootstrap 5</span>
-      <span class="skill-tag">Git & GitHub</span>
-      <span class="skill-tag">C++</span>
+    <h2>Skills</h2>
+    <div class="skills-box">
+      <span>HTML5</span>
+      <span>CSS3</span>
+      <span>JavaScript</span>
+      <span>Bootstrap</span>
+      <span>Git & GitHub</span>
+      <span>C++</span>
+      <span>Python</span>
     </div>
   </section>
 
   <section id="projects" class="container">
-    <h2>Projects</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <h3>Weather Finder App</h3>
-        <p>Fetches real-time temperature and weather metrics using the Fetch API and Open-Meteo REST service.</p>
-        <a href="../Experiment-5/weather.html" class="link-btn">Open Project &rarr;</a>
+    <h2>Lab Projects</h2>
+    <div class="project-list">
+      <div class="card">
+        <h3>Weather App</h3>
+        <p>A simple app that takes a city name and fetches real-time temperature and wind speed using Open-Meteo API.</p>
+        <a href="../Experiment-5/weather.html">View App &rarr;</a>
       </div>
-      <div class="project-card">
-        <h3>Dynamic To-Do List</h3>
-        <p>Interactive task tracker with add, toggle complete, and delete functions using DOM manipulation.</p>
-        <a href="../Experiment-3/todo.html" class="link-btn">Open Project &rarr;</a>
+
+      <div class="card">
+        <h3>To-Do List</h3>
+        <p>A dynamic task manager built using vanilla JavaScript DOM methods to add, complete, and remove tasks.</p>
+        <a href="../Experiment-3/todo.html">View App &rarr;</a>
       </div>
-      <div class="project-card">
-        <h3>Responsive Tech Blog</h3>
-        <p>Mobile-friendly blog page built with the Bootstrap 5 grid layout and custom media queries.</p>
-        <a href="../Experiment-6/blog.html" class="link-btn">Open Project &rarr;</a>
+
+      <div class="card">
+        <h3>Tech Blog</h3>
+        <p>A responsive blog layout created with Bootstrap 5 grid classes and custom media queries for mobile view.</p>
+        <a href="../Experiment-6/blog.html">View App &rarr;</a>
       </div>
     </div>
   </section>
 
   <section id="contact" class="container">
-    <h2>Contact</h2>
-    <form class="contact-box" onsubmit="event.preventDefault(); alert('Message sent!');">
-      <div class="input-row">
-        <label for="name">Name</label>
-        <input type="text" id="name" placeholder="Your Name" required>
-      </div>
-      <div class="input-row">
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="name@example.com" required>
-      </div>
-      <div class="input-row">
-        <label for="msg">Message</label>
-        <textarea id="msg" rows="4" placeholder="Your message..." required></textarea>
-      </div>
-      <button type="submit" class="btn">Send</button>
+    <h2>Contact Me</h2>
+    <form class="contact-form" onsubmit="event.preventDefault(); alert('Message submitted!');">
+      <label for="name">Name</label>
+      <input type="text" id="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" required>
+
+      <label for="msg">Message</label>
+      <textarea id="msg" rows="4" required></textarea>
+
+      <button type="submit" class="btn">Submit</button>
     </form>
   </section>
 
   <footer>
-    <p>&copy; 2026 Vansh Chaudhary | JSS University Web Development Lab</p>
+    <p>&copy; 2026 Vansh Chaudhary | JSS University</p>
   </footer>
 </body>
 </html>
